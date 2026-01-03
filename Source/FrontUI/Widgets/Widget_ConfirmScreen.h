@@ -50,6 +50,10 @@ public:
 
 	void InitConfirmScreen(UConfirmScreenInfoObject* InScreenInfoObject, TFunction<void(EConfirmScreenButtonType)> ClickedButtonCallback);
 
+protected:
+
+	virtual UWidget* NativeGetDesiredFocusTarget() const override;
+	
 private:
 
 	UPROPERTY(meta=(BindWidget))

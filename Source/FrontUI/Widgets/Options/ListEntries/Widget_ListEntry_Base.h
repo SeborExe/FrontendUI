@@ -27,12 +27,16 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, meta=(DisplayName="Get Widget To Focus For Gamepad"))
 	UWidget* BP_GetWidgetToFocusForGamepad() const;
 
+	UFUNCTION(BlueprintImplementableEvent, meta=(DisplayName="On Toggle Entry Widget Highlight State"))
+	void BP_OnToggleEntryWidgetHighlightState(bool bShouldHighlught) const;
+
 	virtual void NativeOnListItemObjectSet(UObject* ListItemObject) override;
 	virtual FReply NativeOnFocusReceived(const FGeometry& InGeometry, const FFocusEvent& InFocusEvent) override;
 	virtual void NativeOnEntryReleased() override;
 	
 	virtual void OnOwningListDataObjectSet(UListDataObject_Base* InOwningListDataObject);
 	virtual void OnOwningListDataObjectModified(UListDataObject_Base* OwningModifiedData, EOptionsListDataModifyReason ModifiedReason);
+	virtual void NativeOnItemSelectionChanged(bool bIsSelected) override;
 	virtual void OnToggleEditableState(bool bIsEditable);
 	
 	void SelectThisEntryWidget();

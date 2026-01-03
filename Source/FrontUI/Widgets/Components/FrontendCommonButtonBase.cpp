@@ -2,6 +2,8 @@
 
 
 #include "FrontUI/Widgets/Components/FrontendCommonButtonBase.h"
+
+#include "CommonLazyImage.h"
 #include "CommonTextBlock.h"
 #include "FrontUI/Subsystem/FrontendUISubsystem.h"
 
@@ -11,6 +13,14 @@ void UFrontendCommonButtonBase::SetButtonText(FText InText)
 	if (CommonTextBlock_ButtonText && !InText.IsEmpty())
 	{
 		CommonTextBlock_ButtonText->SetText(bUseUpperCaseForButtonText? InText.ToUpper() : InText);
+	}
+}
+
+void UFrontendCommonButtonBase::SetButtonDisplayImage(const FSlateBrush& InBrush)
+{
+	if (CommonLazyImage_ButtonImage)
+	{
+		CommonLazyImage_ButtonImage->SetBrush(InBrush);
 	}
 }
 
